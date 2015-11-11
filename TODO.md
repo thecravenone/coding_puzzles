@@ -10,3 +10,4 @@
 
 # Efficiency
 * project_euler/005.js - Spending a few cycles to find the largest prime factors of max_divisor would eliminate the need to test for those.
+* project_eulser/007.js - Replace brute forced prime generator with more efficient prime generating algorithm.
