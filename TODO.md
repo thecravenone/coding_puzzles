@@ -7,3 +7,6 @@
 * [Reddit: Daily Programmer](https://www.reddit.com/r/dailyprogrammer)
 ## Other / one-off
 * The algorithmic challenges described in [this Reddit thread](https://www.reddit.com/r/javascript/comments/3rb88w/ten_questions_ive_been_asked_most_more_than_once/)
+
+# Efficiency
+* project_euler/005.js - Spending a few cycles to find the largest prime factors of max_divisor would eliminate the need to test for those.
