@@ -1,37 +1,24 @@
 //Title: Project Euler problem - Highly divisible triangular number
 //Source: https://projecteuler.net/problem=12
 
-//Generate the xth triangle number
-/*
-var triangle_number = function(x) {
-	var sum =0;
-	for(var i=0; i<=x; i++) {
-		sum += i;
-	}
-	return sum
-};
-*/
-//That's great and all but I don't want to start from scratch on each triangle number
+//Generate the next triangle number
 var next_triangle_number = function(previous_triangle_number, previous_position) {
 	return previous_triangle_number + previous_position + 1;
 };
-var get_all_factors = function(x) {
-	var factors = [];
+
+var number_of_factors = function(x) {
+	var num_factors = 2;	//The number and 1. True for all natural numbers > 1
 	if(x == 1) {
-		factors.push(1);
-		return factors;
+		num_factors = 1;
+		return num_factors;
 	}
-	for(var i=1; i<x/2+1; i++) {
+	for(var i=1; i<Math.floor(Math.sqrt(x)); i++) {
 		if (x % i == 0) {
-			factors.push(i);
+			num_factors+=2;	//The factor found + the thing it gets multiplied by.
 		}
 	}
-	factors.push(x);
-	return factors;
-};
-var number_of_factors = function(x) {
-	var factor_array = get_all_factors(x);
-	return factor_array.length;
+	num_factors++;	//to account for the number itself.
+	return num_factors;
 };
 
 var tri_pos = 0;

@@ -35,8 +35,17 @@ var get_all_factors = function(x) {
 	return factors;
 };
 //Returns the total number of factors of the input.
-//Require get_all_factors.
 var number_of_factors = function(x) {
-	var factor_array = get_all_factors(x);
-	return factor_array.length;
+	var num_factors = 2;	//The number and 1. True for all natural numbers > 1
+	if(x == 1) {
+		num_factors = 1;
+		return num_factors;
+	}
+	for(var i=1; i<Math.floor(Math.sqrt(x)); i++) {
+		if (x % i == 0) {
+			num_factors+=2;	//The factor found + the thing it gets multiplied by.
+		}
+	}
+	num_factors++;	//to account for the number itself.
+	return num_factors;
 };
