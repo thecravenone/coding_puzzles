@@ -15,23 +15,20 @@ var triangle_number = function(x) {
 var next_triangle_number = function(previous_triangle_number, previous_position) {
 	return previous_triangle_number + previous_position + 1;
 };
-var get_all_factors = function(x) {
-	var factors = [];
+
+var number_of_factors = function(x) {
+	var num_factors = 0;
 	if(x == 1) {
-		factors.push(1);
-		return factors;
+		num_factors = 1;
+		return num_factors;
 	}
 	for(var i=1; i<x/2+1; i++) {
 		if (x % i == 0) {
-			factors.push(i);
+			num_factors++;
 		}
 	}
-	factors.push(x);
-	return factors;
-};
-var number_of_factors = function(x) {
-	var factor_array = get_all_factors(x);
-	return factor_array.length;
+	num_factors++;	//to account for the number itself.
+	return num_factors;
 };
 
 var tri_pos = 0;
