@@ -1,9 +1,9 @@
 //Title: Challenge 239 [Easy] A Game of Threes
 //Source: https://redd.it/3r7wxz
+//Alternative solution - recursive
 
-//var input = 31337357;			//Problem input
-var input = 9007199254740991;	//Speed testing input
-								//Avg time on that: 114.8 ms
+var input = 31337357;	
+
 var num = input;
 
 var GoT = function (num) {
