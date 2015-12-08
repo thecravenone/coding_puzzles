@@ -49,3 +49,16 @@ var number_of_factors = function(x) {
 	num_factors++;	//to account for the number itself.
 	return num_factors;
 };
+//Returns whether the input is prime.
+var is_prime = function(x) {
+	if(x <= 1) {
+		return false;
+	}
+	for(var i=2; i<(Math.floor(Math.sqrt(x))+1); i++) {
+		//The +1 there avoids i=2; i<sqrt(4) causing 4 to skip the check and return true.
+		if (x % i == 0) {
+			return false;
+		}
+	}
+	return true;
+};
