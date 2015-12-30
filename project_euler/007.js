@@ -1,10 +1,33 @@
 //Title: Project Euler problem - 10001st prime
 //Source: https://projecteuler.net/problem=7
 
+var primes_below = function(max) {
+	var sieve = [];
+	var primes = [];
+	for(var i=2; i<=max; i++) {
+		if(!sieve[i]) {
+			//i has not been marked and is therefore prime
+			primes.push(i);
+			for (var j=i*2; j<=max; j+=i) {
+				sieve[j] = true;
+			}
+		}
+	}
+	return primes;
+};
+
 var xth_prime = function(x) {
-	var count = 2;
-	var primes = [2,3];
-	var to_test = 5;
+	//The xth prime is appox n log n
+	//So find that number, calculate primes using a seive then go from there
+	var approx = x * Math.floor(Math.log(x));
+	var primes = primes_below(approx);
+	if (primes.length > x) {
+		//If we over shot it...
+		return primes[x-1];
+	}
+	//if not, continue in the inefficient way we were doing before...
+	var count = primes.length;
+	var to_test = primes[primes.length-1] + 2;
 	while (count < x) {
 		var is_prime = false;
 		//DEBUG:
