@@ -12,31 +12,18 @@
 //$ 
 
 
+//Returns an array of all primes below the input
 var primes_below = function(max) {
-	var count = 2;
-	var primes = [2,3];
-	var to_test = 5;
-	while (to_test < max) {
-		var is_prime = false;
-		//DEBUG:
-		//console.log("Testing if " + to_test + " is prime.");
-		for(i=0; i<primes.length; i++) {
-			is_prime = true;
-			//DEBUG:
-			//console.log("Testing " + to_test + " / " + primes[i]);
-			if (to_test % primes[i] == 0) {
-				is_prime = false;
-				i = primes.length;	//Lazy break
+	var sieve = [];
+	var primes = [];
+	for(var i=2; i<=max; i++) {
+		if(!sieve[i]) {
+			//i has not been marked and is therefore prime
+			primes.push(i);
+			for (var j=i*2; j<=max; j+=i) {
+				sieve[j] = true;
 			}
 		}
-		if (is_prime) {
-			primes.push(to_test);
-			count++;
-			//DEBUG:
-			//console.log("Added " + to_test + " to the array of primes!");
-		}
-		//Generate the next prime
-		to_test += 2;
 	}
 	return primes;
 };

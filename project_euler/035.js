@@ -4,24 +4,16 @@
 var max_to_test = 1000000;
 
 var primes_below = function(max) {
-	var count = 2;
-	var primes = [2,3];
-	var to_test = 3;
-	while (to_test < max) {
-		var is_prime = false;
-		for(i=0; i<primes.length; i++) {
-			is_prime = true;
-			if (to_test % primes[i] == 0) {
-				is_prime = false;
-				i = primes.length;	//Lazy break
+	var sieve = [];
+	var primes = [];
+	for(var i=2; i<=max; i++) {
+		if(!sieve[i]) {
+			//i has not been marked and is therefore prime
+			primes.push(i);
+			for (var j=i*2; j<=max; j+=i) {
+				sieve[j] = true;
 			}
 		}
-		if (is_prime) {
-			primes.push(to_test);
-			count++;	
-		}
-		//Generate the next prime
-		to_test += 2;
 	}
 	return primes;
 };
