@@ -4,10 +4,8 @@
 var xth_prime = function(x) {
 	var count = 2;
 	var primes = [2,3];
-	var to_test = 3;
+	var to_test = 5;
 	while (count < x) {
-		//Generate the next prime
-		to_test += 2;
 		var is_prime = false;
 		//DEBUG:
 		//console.log("Testing if " + to_test + " is prime.");
@@ -27,10 +25,8 @@ var xth_prime = function(x) {
 			//console.log("Added " + to_test + " to the array of primes!");
 			//console.log("...and it is the " + count + "th prime!");
 		}
-		else {
-
-		}
-
+		//Generate the next prime
+		to_test += 2;
 	}
 	return primes[primes.length-1];
 };

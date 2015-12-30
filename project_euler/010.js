@@ -15,10 +15,8 @@
 var primes_below = function(max) {
 	var count = 2;
 	var primes = [2,3];
-	var to_test = 3;
+	var to_test = 5;
 	while (to_test < max) {
-		//Generate the next prime
-		to_test += 2;
 		var is_prime = false;
 		//DEBUG:
 		//console.log("Testing if " + to_test + " is prime.");
@@ -37,10 +35,8 @@ var primes_below = function(max) {
 			//DEBUG:
 			//console.log("Added " + to_test + " to the array of primes!");
 		}
-		else {
-
-		}
-
+		//Generate the next prime
+		to_test += 2;
 	}
 	return primes;
 };
